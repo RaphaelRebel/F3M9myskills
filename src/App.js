@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import {  Route, Router, Routes } from 'react-router-dom';
+import Question from './Question/Question';
+import Intro from './Intro/Intro';
+import questions from './data/Questions'
+
+const App = () => {
+
+  let questionsToBeRendered = questions.map(questionObject => {
+      return <Question key={questionObject.number} number={questionObject.number} question={questionObject.question} rating={questionObject.rating} />;
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <Routes>
+    //   <Route path='/' element={<Intro />}></Route>
+    //   <Route path='/vraag' element={<Question />}>
+        
+    //   </Route>
+    // </Routes>
+    <>
+      <Routes>
+        <Route path='/' element={<Intro />}></Route>
+        <Route path='/vraag/:number' element={<Question />}></Route>
+      </Routes>
+    </>
+
   );
 }
 
