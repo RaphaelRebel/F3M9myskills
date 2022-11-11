@@ -1,11 +1,45 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import "./Outro.css"
+import { Bar } from 'react-chartjs-2'
+import {
+         Chart as ChartJS,
+         CategoryScale,
+         LinearScale,
+         BarElement,
+         Title,
+         Tooltip,
+         Legend,
+} from 'chart.js';
 
-const Outro = () => {
+
+const Outro = (props) => {
+
+         ChartJS.register(
+                  CategoryScale,
+                  LinearScale,
+                  BarElement,
+                  Title,
+                  Tooltip,
+                  Legend
+         );
+
+         let ratings = []
+         props.questionsAndAnswers.map(question => {
+                  ratings.push(question.rating)
+         })
+         const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+         console.log(props.questionsAndAnswers)
+         let data = {
+                  labels: labels,
+                  datasets: [{
+                           label: 'My First Dataset',
+                           data: ratings
+                  }]
+         }
          return (
-         <>
-         <h2>Hallo ik ben een outro</h2>
-         <Link to='/'>Ga hier terug</Link>
-         </>
+                  <>
+                           <article className="outro"><Bar data={data}></Bar></article>
+                  </>
          )
 }
 

@@ -5,16 +5,26 @@ import Intro from './Intro/Intro';
 import questions from './data/Questions'
 import QuestionRouter from './QuestionsRouter/QuestionRouter';
 import Outro from './Outro/Outro'
-const App = () => {
+import React from 'react'
+
+class App extends React.Component{
 
   // let questionsToBeRendered = questions.map(questionObject => {
   //     return <Question key={questionObject.number} number={questionObject.number} question={questionObject.question} rating={questionObject.rating} />;
   // })
 
-  const onLast = (questionsAndAnswers) => {
-    console.log('hallo vanuit app', questionsAndAnswers)
+  constructor(props){
+    super(props)
+    this.state={questionsAndAnswers: []};
   }
 
+   onLast = (questionsAndAnswers) => {
+    console.log('hallo vanuit app', questionsAndAnswers)
+    this.setState({questionsAndAnswers: questionsAndAnswers})
+  }
+
+
+  render(){
   return (
     // <Routes>
     //   <Route path='/' element={<Intro />}></Route>
@@ -25,14 +35,16 @@ const App = () => {
     <>
       <Switch>
         <Route path='/vragen/:number'>
-          <QuestionRouter onLast={onLast}/>
+          <QuestionRouter onLast={this.onLast}/>
         </Route>
-        <Route path='/outro/' component={Outro}></Route>
+        <Route path='/outro/' >
+          <Outro questionsAndAnswers={this.state.questionsAndAnswers} />
+        </Route>
         <Route path='/' component={Intro}></Route>
       </Switch>
     </>
 
   );
-}
+}}
 
 export default App;
