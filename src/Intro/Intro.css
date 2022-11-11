@@ -1,0 +1,15 @@
+.intro{
+         height: 40rem;
+width: 60rem;
+background-color: rgb(62, 0, 246);
+border-radius: 3rem;
+box-shadow: inset 0 -0.5rem 1rem 0rem rgb(0, 18, 83, 0.3);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.intro__link{
+         font-size: 200%;
+         color: #eee;
+}
