@@ -76,3 +76,9 @@
          border: 0.2rem dashed #001252;
 
 }
+
+@media screen and (max-width: 500px){
+       .question__heading{
+              font-size: 140%;
+     }
+}
