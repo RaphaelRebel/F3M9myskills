@@ -11,6 +11,10 @@ const App = () => {
   //     return <Question key={questionObject.number} number={questionObject.number} question={questionObject.question} rating={questionObject.rating} />;
   // })
 
+  const onLast = (questionsAndAnswers) => {
+    console.log('hallo vanuit app', questionsAndAnswers)
+  }
+
   return (
     // <Routes>
     //   <Route path='/' element={<Intro />}></Route>
@@ -20,7 +24,9 @@ const App = () => {
     // </Routes>
     <>
       <Switch>
-        <Route path='/vragen/:number' component={QuestionRouter}></Route>
+        <Route path='/vragen/:number'>
+          <QuestionRouter onLast={onLast}/>
+        </Route>
         <Route path='/outro/' component={Outro}></Route>
         <Route path='/' component={Intro}></Route>
       </Switch>

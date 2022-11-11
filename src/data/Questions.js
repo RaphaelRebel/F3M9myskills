@@ -52,7 +52,8 @@ const questions = [
                   "question": 'Hoe goed ben je nu in HTML?',
                   "rating": 0,
                   "previous": '/vragen/7',
-                  "next": '/outro'
+                  "next": '/outro',
+                  "last": true
          },
 ]
 
