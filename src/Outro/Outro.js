@@ -23,11 +23,13 @@ const Outro = (props) => {
                   Legend
          );
 
+         let questions = []
          let ratings = []
          props.questionsAndAnswers.map(question => {
+                  questions.push(question.question)
                   ratings.push(question.rating)
          })
-         const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+         const labels = questions;
          console.log(props.questionsAndAnswers)
          let data = {
                   labels: labels,
